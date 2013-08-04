@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: git | Alexogar`s Blog]]></title>
+  <link href="http://alexogar.github.io/blog/categories/git/atom.xml" rel="self"/>
+  <link href="http://alexogar.github.io/"/>
+  <updated>2013-08-04T21:39:01+04:00</updated>
+  <id>http://alexogar.github.io/</id>
+  <author>
+    <name><![CDATA[Alexey Ogarkov]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Github Injustice]]></title>
+    <link href="http://alexogar.github.io/blog/2013/08/01/github-injustice/"/>
+    <updated>2013-08-01T03:06:00+04:00</updated>
+    <id>http://alexogar.github.io/blog/2013/08/01/github-injustice</id>
+    <content type="html"><![CDATA[<p>Is somebody noticed that sometimes some portion of injustice fired up when you surf around github?</p>
+
+<p>Do you think that some <a href="https://github.com/petervanderdoes/gitflow">forks</a> of <a href="https://github.com/nvie/gitflow">popular repositories</a> deserves more attention and publicity? My example &lsquo;git-flow (AVH Edition)&rsquo; is much better software than original &lsquo;git-flow&rsquo; abandoned 2 years ago, with multiple bugfixes and features. And it`s almost impossible to google in a short time.</p>
+
+<h2>Here story of my team&hellip;</h2>
+
+<p>Yesterday we tried to find the best model for Git Branching, we heard about &lsquo;git-flow&rsquo; but we tried <a href="https://www.google.com/search?q=git+branching+model">search</a> and first link which you get is [<a href="http://nvie.com/posts/a-successful-git-branching-model/">http://nvie.com/posts/a-successful-git-branching-model/</a>] which is direct idea that inspired git-flow.</p>
+
+<p>So after 10 clicks we are on <a href="https://github.com/nvie/gitflow">gitflow GitHub</a> and trying to install it.</p>
+
+<!-- more -->
+
+
+<h2><strong>Problems:</strong></h2>
+
+<ol>
+<li><p>Default behavior in git-flow and in blog post is &lsquo;&mdash;no-ff&rsquo; which disables fast-forward merge and ensures that there will be commit about merge, which will help you to revert whole feature</p>
+
+<p> <strong>Note:</strong> We found that this model not perfectly work for our team, every one here commits very often and when you try to finish feature our history looks like</p></li>
+</ol>
+
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Trashed history </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>*   e7258a3 &ndash; fetcher.js implementation
+</span><span class='line'>|\
+</span><span class='line'>| * 0dc2743 &ndash; comoon!
+</span><span class='line'>| * cad3e15 &ndash; hope it help!
+</span><span class='line'>| * da2e414 &ndash; fixes fetcher.js
+</span><span class='line'>| * ae16e25 &ndash; added fetcher.js p.0
+</span><span class='line'>|/</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<pre><code>And we wanted it be just one commit in 'develop' branch.
+</code></pre>
+
+<ol>
+<li>After some googling and looking into git-flow codebase we found <code>-S</code> parameter for <code>git flow feature finish -S fetcher.js</code> command, this command supposed to do <code>merge --squash</code> which perfectly fits our needs, but there is a bug <em>(or I think it`s a bug:) )</em> in <a href="https://github.com/nvie/gitflow">gitflow</a> which creates merge commit anyway. So history with <code>-S</code> looks like:</li>
+</ol>
+
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Trashed history </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>*   e7258a3 &ndash; Merged feature fetcher.js to develop (merged branch anyway)
+</span><span class='line'>|\
+</span><span class='line'>* | 24bed22 &ndash; fetcher.js implementation (&mdash;squash and commit)
+</span><span class='line'>| * 0dc2743 &ndash; comoon!
+</span><span class='line'>| * cad3e15 &ndash; hope it help!
+</span><span class='line'>| * da2e414 &ndash; fixes fetcher.js
+</span><span class='line'>| * ae16e25 &ndash; added fetcher.js p.0
+</span><span class='line'>|/</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h2><strong>Solution:</strong></h2>
+
+<p>So we decided to check whether there are some forks of gitflow with that fix fixed, and the most featured one is <a href="https://github.com/petervanderdoes/gitflow">gitflow (AVH Edition)</a> which as I think now should be default gitflow repository. Using this fork could help you had following clean history in git repo:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Trashed history </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>* e7258a3 &ndash; fetcher.js implementation (&mdash;squash and commit)
+</span><span class='line'>* da2e414 &ndash; previous feature</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Github is way to better than other opensource platforms in inspiring programmers to do opensource, it has social and competition aspects in it, but I think sometime it lacks some visibility of succesfull forks in shine of abandoned origins</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,232 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Github Injustice - Alexogar`s Blog</title>
+	<meta name="author" content="Alexey Ogarkov">
+
+	
+	<meta name="description" content="Github Injustice Is somebody noticed that sometimes some portion of injustice fired up when you surf around github? Do you think that some forks of &hellip;">
+	
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Alexogar`s Blog" type="application/atom+xml">
+	
+	<link rel="canonical" href="http://alexogar.github.io/blog/2013/08/01/github-injustice/">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
+	<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+			<header id="header" class="inner"><div class="profilepic">
+	<script src="/javascripts/md5.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.profilepic').append("<img src='http://www.gravatar.com/avatar/" + MD5("") + "?s=160' alt='Profile Picture' style='width: 160px;' />");
+		});
+	</script>
+</div>
+<hgroup>
+  <h1><a href="/">Alexogar`s Blog</a></h1>
+  
+</hgroup>
+
+<p class="subtitle"></p>
+<nav id="main-nav"><ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+<nav id="sub-nav">
+	<div class="social">
+		
+		
+		<a class="google" href="https://plus.google.com/108476946220428831449" rel="author" title="Google+">Google+</a>
+		
+		
+		<a class="twitter" href="http://twitter.com/alexogar" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/alexogar" title="GitHub">GitHub</a>
+		
+		
+		
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+</nav>
+</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			
+				
+			
+			<div class="mid-col-container">
+				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+	<h1 class="title" itemprop="name">Github Injustice</h1>
+	<div class="entry-content" itemprop="articleBody"><p>Is somebody noticed that sometimes some portion of injustice fired up when you surf around github?</p>
+
+<p>Do you think that some <a href="https://github.com/petervanderdoes/gitflow">forks</a> of <a href="https://github.com/nvie/gitflow">popular repositories</a> deserves more attention and publicity? My example &lsquo;git-flow (AVH Edition)&rsquo; is much better software than original &lsquo;git-flow&rsquo; abandoned 2 years ago, with multiple bugfixes and features. And it`s almost impossible to google in a short time.</p>
+
+<h2>Here story of my team&hellip;</h2>
+
+<p>Yesterday we tried to find the best model for Git Branching, we heard about &lsquo;git-flow&rsquo; but we tried <a href="https://www.google.com/search?q=git+branching+model">search</a> and first link which you get is [<a href="http://nvie.com/posts/a-successful-git-branching-model/">http://nvie.com/posts/a-successful-git-branching-model/</a>] which is direct idea that inspired git-flow.</p>
+
+<p>So after 10 clicks we are on <a href="https://github.com/nvie/gitflow">gitflow GitHub</a> and trying to install it.</p>
+
+<!-- more -->
+
+
+<h2><strong>Problems:</strong></h2>
+
+<ol>
+<li><p>Default behavior in git-flow and in blog post is &lsquo;&mdash;no-ff&rsquo; which disables fast-forward merge and ensures that there will be commit about merge, which will help you to revert whole feature</p>
+
+<p> <strong>Note:</strong> We found that this model not perfectly work for our team, every one here commits very often and when you try to finish feature our history looks like</p></li>
+</ol>
+
+
+<figure class='code'><figcaption><span>Trashed history </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>*   e7258a3 - fetcher.js implementation
+</span><span class='line'>|\
+</span><span class='line'>| * 0dc2743 - comoon!
+</span><span class='line'>| * cad3e15 - hope it help!
+</span><span class='line'>| * da2e414 - fixes fetcher.js
+</span><span class='line'>| * ae16e25 - added fetcher.js p.0
+</span><span class='line'>|/</span></code></pre></td></tr></table></div></figure>
+
+
+<pre><code>And we wanted it be just one commit in 'develop' branch.
+</code></pre>
+
+<ol>
+<li>After some googling and looking into git-flow codebase we found <code>-S</code> parameter for <code>git flow feature finish -S fetcher.js</code> command, this command supposed to do <code>merge --squash</code> which perfectly fits our needs, but there is a bug <em>(or I think it`s a bug:) )</em> in <a href="https://github.com/nvie/gitflow">gitflow</a> which creates merge commit anyway. So history with <code>-S</code> looks like:</li>
+</ol>
+
+
+<figure class='code'><figcaption><span>Trashed history </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>*   e7258a3 - Merged feature fetcher.js to develop (merged branch anyway)
+</span><span class='line'>|\
+</span><span class='line'>* | 24bed22 - fetcher.js implementation (--squash and commit)
+</span><span class='line'>| * 0dc2743 - comoon!
+</span><span class='line'>| * cad3e15 - hope it help!
+</span><span class='line'>| * da2e414 - fixes fetcher.js
+</span><span class='line'>| * ae16e25 - added fetcher.js p.0
+</span><span class='line'>|/</span></code></pre></td></tr></table></div></figure>
+
+
+<h2><strong>Solution:</strong></h2>
+
+<p>So we decided to check whether there are some forks of gitflow with that fix fixed, and the most featured one is <a href="https://github.com/petervanderdoes/gitflow">gitflow (AVH Edition)</a> which as I think now should be default gitflow repository. Using this fork could help you had following clean history in git repo:</p>
+
+<figure class='code'><figcaption><span>Trashed history </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>* e7258a3 - fetcher.js implementation (--squash and commit)
+</span><span class='line'>* da2e414 - previous feature</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Github is way to better than other opensource platforms in inspiring programmers to do opensource, it has social and competition aspects in it, but I think sometime it lacks some visibility of succesfull forks in shine of abandoned origins</p>
+</div>
+
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+
+<section id="comment">
+    <h1 class="title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+			</div>
+			<footer id="footer" class="inner"><p>
+  Copyright &copy; 2013 - Alexey Ogarkov -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+Design based on: <a href="http://shashankmehta.in/archive/2012/greyshade.html">GreyShade</a></footer>
+			<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'alexogarblog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://alexogar.github.io/blog/2013/08/01/github-injustice/';
+        var disqus_url = 'http://alexogar.github.io/blog/2013/08/01/github-injustice/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+		</div>
+	</div>
+</body>
+</html>
