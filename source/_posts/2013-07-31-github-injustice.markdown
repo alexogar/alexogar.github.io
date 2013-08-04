@@ -10,7 +10,7 @@ Is somebody noticed that sometimes some portion of injustice fired up when you s
 
 Do you think that some [forks](https://github.com/petervanderdoes/gitflow) of [popular repositories](https://github.com/nvie/gitflow) deserves more attention and publicity? My example 'git-flow (AVH Edition)' is much better software than original 'git-flow' abandoned 2 years ago, with multiple bugfixes and features. And it`s almost impossible to google in a short time. 
 
-##Here story of my team...
+##**Here is full story...**
 
 Yesterday we tried to find the best model for Git Branching, we heard about 'git-flow' but we tried [search](https://www.google.com/search?q=git+branching+model) and first link which you get is [http://nvie.com/posts/a-successful-git-branching-model/] which is direct idea that inspired git-flow.
 
