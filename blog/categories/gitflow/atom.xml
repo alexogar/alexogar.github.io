@@ -4,7 +4,7 @@
   <title><![CDATA[Category: gitflow | Alexogar`s Blog]]></title>
   <link href="http://alexogar.github.io/blog/categories/gitflow/atom.xml" rel="self"/>
   <link href="http://alexogar.github.io/"/>
-  <updated>2013-08-04T21:56:34+04:00</updated>
+  <updated>2013-08-05T02:44:57+04:00</updated>
   <id>http://alexogar.github.io/</id>
   <author>
     <name><![CDATA[Alexey Ogarkov]]></name>
@@ -22,7 +22,7 @@
 
 <p>Do you think that some <a href="https://github.com/petervanderdoes/gitflow">forks</a> of <a href="https://github.com/nvie/gitflow">popular repositories</a> deserves more attention and publicity? My example &lsquo;git-flow (AVH Edition)&rsquo; is much better software than original &lsquo;git-flow&rsquo; abandoned 2 years ago, with multiple bugfixes and features. And it`s almost impossible to google in a short time.</p>
 
-<h2>Here story of my team&hellip;</h2>
+<h2><strong>Here is full story&hellip;</strong></h2>
 
 <p>Yesterday we tried to find the best model for Git Branching, we heard about &lsquo;git-flow&rsquo; but we tried <a href="https://www.google.com/search?q=git+branching+model">search</a> and first link which you get is [<a href="http://nvie.com/posts/a-successful-git-branching-model/">http://nvie.com/posts/a-successful-git-branching-model/</a>] which is direct idea that inspired git-flow.</p>
 
