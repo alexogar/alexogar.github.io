@@ -4,7 +4,7 @@
   <title><![CDATA[Alexogar`s Blog]]></title>
   <link href="http://alexogar.github.io/atom.xml" rel="self"/>
   <link href="http://alexogar.github.io/"/>
-  <updated>2013-08-05T02:44:57+04:00</updated>
+  <updated>2013-08-17T02:23:01+04:00</updated>
   <id>http://alexogar.github.io/</id>
   <author>
     <name><![CDATA[Alexey Ogarkov]]></name>
@@ -12,6 +12,36 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Fast terminal navigation]]></title>
+    <link href="http://alexogar.github.io/blog/2013/08/17/z-dot-script/"/>
+    <updated>2013-08-17T00:02:00+04:00</updated>
+    <id>http://alexogar.github.io/blog/2013/08/17/z-dot-script</id>
+    <content type="html"><![CDATA[<p>Here are some tips for fast folder navigation in terminal.</p>
+
+<h2>z.sh</h2>
+
+<p>Now <a href="https://github.com/rupa/z">z.sh</a> is most used command in my everyday terminal live, it must be installed if you want stop using long sequences of cd commands. It will create some kind of &ldquo;top chart&rdquo; of you folders and will let you jump into them using just several letters. For example</p>
+
+<figure class='code'><figcaption><span>zsh </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>z git 
+</span><span class='line'># will move me to /Users/alexogar/Projects/github</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>cd &ndash;</h2>
+
+<p>This command will return you to previos folder</p>
+
+<h2>oh-my-zsh</h2>
+
+<p>Has best completion support among all shell`s I have ever seen</p>
+
+<h2><em>To be continued&hellip;</em></h2>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Github Injustice]]></title>
