@@ -4,7 +4,7 @@
   <title><![CDATA[Alexogar`s Blog]]></title>
   <link href="http://alexogar.github.io/atom.xml" rel="self"/>
   <link href="http://alexogar.github.io/"/>
-  <updated>2013-08-17T02:40:58+04:00</updated>
+  <updated>2014-12-17T01:44:28+03:00</updated>
   <id>http://alexogar.github.io/</id>
   <author>
     <name><![CDATA[Alexey Ogarkov]]></name>
@@ -31,7 +31,7 @@
 </span><span class='line'># will move me to /Users/alexogar/Projects/github</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>cd &ndash;</h2>
+<h2>cd -</h2>
 
 <p>This command will return you to previos folder</p>
 
@@ -64,7 +64,7 @@
 <h2><strong>Problems:</strong></h2>
 
 <ol>
-<li><p>Default behavior in git-flow and in blog post is &lsquo;&mdash;no-ff&rsquo; which disables fast-forward merge and ensures that there will be commit about merge, which will help you to revert whole feature</p>
+<li><p>Default behavior in git-flow and in blog post is &lsquo;&ndash;no-ff&rsquo; which disables fast-forward merge and ensures that there will be commit about merge, which will help you to revert whole feature</p>
 
 <p> <strong>Note:</strong> We found that this model not perfectly work for our team, every one here commits very often and when you try to finish feature our history looks like</p></li>
 </ol>

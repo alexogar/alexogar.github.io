@@ -4,7 +4,7 @@
   <title><![CDATA[Category: zsh | Alexogar`s Blog]]></title>
   <link href="http://alexogar.github.io/blog/categories/zsh/atom.xml" rel="self"/>
   <link href="http://alexogar.github.io/"/>
-  <updated>2013-08-17T02:40:58+04:00</updated>
+  <updated>2014-12-17T01:44:28+03:00</updated>
   <id>http://alexogar.github.io/</id>
   <author>
     <name><![CDATA[Alexey Ogarkov]]></name>
@@ -24,7 +24,7 @@
 
 <p>Now <a href="https://github.com/rupa/z">z.sh</a> is most used command in my everyday terminal live, it must be installed if you want stop using long sequences of cd commands. It will create some kind of &ldquo;top chart&rdquo; of you folders and will let you jump into them using just several letters. For example</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>zsh </span></figcaption>
+<p><figure class='code'><figcaption><span>zsh </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -34,9 +34,9 @@
 </span><span class='line'>
 </span><span class='line'>&lt;h1>will move me to /Users/alexogar/Projects/github&lt;/h1>
 </span><span class='line'>
-</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></p>
 
-<h2>cd &ndash;</h2>
+<h2>cd -</h2>
 
 <p>This command will return you to previos folder</p>
 

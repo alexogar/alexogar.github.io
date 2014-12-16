@@ -4,7 +4,7 @@
   <title><![CDATA[Category: gitflow | Alexogar`s Blog]]></title>
   <link href="http://alexogar.github.io/blog/categories/gitflow/atom.xml" rel="self"/>
   <link href="http://alexogar.github.io/"/>
-  <updated>2013-08-17T02:40:58+04:00</updated>
+  <updated>2014-12-17T01:44:28+03:00</updated>
   <id>http://alexogar.github.io/</id>
   <author>
     <name><![CDATA[Alexey Ogarkov]]></name>
@@ -34,13 +34,13 @@
 <h2><strong>Problems:</strong></h2>
 
 <ol>
-<li><p>Default behavior in git-flow and in blog post is &lsquo;&mdash;no-ff&rsquo; which disables fast-forward merge and ensures that there will be commit about merge, which will help you to revert whole feature</p>
+<li><p>Default behavior in git-flow and in blog post is &lsquo;&ndash;no-ff&rsquo; which disables fast-forward merge and ensures that there will be commit about merge, which will help you to revert whole feature</p>
 
 <p> <strong>Note:</strong> We found that this model not perfectly work for our team, every one here commits very often and when you try to finish feature our history looks like</p></li>
 </ol>
 
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Trashed history </span></figcaption>
+<p><figure class='code'><figcaption><span>Trashed history </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -48,13 +48,13 @@
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>*   e7258a3 &ndash; fetcher.js implementation
+</pre></td><td class='code'><pre><code class=''><span class='line'>*   e7258a3 - fetcher.js implementation
 </span><span class='line'>|\
-</span><span class='line'>| * 0dc2743 &ndash; comoon!
-</span><span class='line'>| * cad3e15 &ndash; hope it help!
-</span><span class='line'>| * da2e414 &ndash; fixes fetcher.js
-</span><span class='line'>| * ae16e25 &ndash; added fetcher.js p.0
-</span><span class='line'>|/</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+</span><span class='line'>| * 0dc2743 - comoon!
+</span><span class='line'>| * cad3e15 - hope it help!
+</span><span class='line'>| * da2e414 - fixes fetcher.js
+</span><span class='line'>| * ae16e25 - added fetcher.js p.0
+</span><span class='line'>|/</span></code></pre></td></tr></table></div></figure></p>
 
 <pre><code>And we wanted it be just one commit in 'develop' branch.
 </code></pre>
@@ -64,7 +64,7 @@
 </ol>
 
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Trashed history </span></figcaption>
+<p><figure class='code'><figcaption><span>Trashed history </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -73,24 +73,24 @@
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>*   e7258a3 &ndash; Merged feature fetcher.js to develop (merged branch anyway)
+</pre></td><td class='code'><pre><code class=''><span class='line'>*   e7258a3 - Merged feature fetcher.js to develop (merged branch anyway)
 </span><span class='line'>|\
-</span><span class='line'>* | 24bed22 &ndash; fetcher.js implementation (&mdash;squash and commit)
-</span><span class='line'>| * 0dc2743 &ndash; comoon!
-</span><span class='line'>| * cad3e15 &ndash; hope it help!
-</span><span class='line'>| * da2e414 &ndash; fixes fetcher.js
-</span><span class='line'>| * ae16e25 &ndash; added fetcher.js p.0
-</span><span class='line'>|/</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+</span><span class='line'>* | 24bed22 - fetcher.js implementation (&ndash;squash and commit)
+</span><span class='line'>| * 0dc2743 - comoon!
+</span><span class='line'>| * cad3e15 - hope it help!
+</span><span class='line'>| * da2e414 - fixes fetcher.js
+</span><span class='line'>| * ae16e25 - added fetcher.js p.0
+</span><span class='line'>|/</span></code></pre></td></tr></table></div></figure></p>
 
 <h2><strong>Solution:</strong></h2>
 
 <p>So we decided to check whether there are some forks of gitflow with that fix fixed, and the most featured one is <a href="https://github.com/petervanderdoes/gitflow">gitflow (AVH Edition)</a> which as I think now should be default gitflow repository. Using this fork could help you had following clean history in git repo:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Trashed history </span></figcaption>
+<p><figure class='code'><figcaption><span>Trashed history </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>* e7258a3 &ndash; fetcher.js implementation (&mdash;squash and commit)
-</span><span class='line'>* da2e414 &ndash; previous feature</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+</pre></td><td class='code'><pre><code class=''><span class='line'>* e7258a3 - fetcher.js implementation (&ndash;squash and commit)
+</span><span class='line'>* da2e414 - previous feature</span></code></pre></td></tr></table></div></figure></p>
 
 <p>Github is way to better than other opensource platforms in inspiring programmers to do opensource, it has social and competition aspects in it, but I think sometime it lacks some visibility of succesfull forks in shine of abandoned origins</p>
 ]]></content>
