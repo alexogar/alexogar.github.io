@@ -6,6 +6,7 @@ import {
   career,
   promotions,
   platformWork,
+  delivery,
   aiWork,
   projects,
   expertise,
@@ -47,7 +48,7 @@ import {
       </div>
       <p class="cv-job-role">{career[0].role}</p>
       <p>{career[0].text}</p>
-      <p>{career[0].bullets[0]}</p>
+      <p>{career[0].bullets[1]}</p>
       <p class="cv-promotions">
         {promotions.map((promotion) => (
           <span>
@@ -56,31 +57,28 @@ import {
         ))}
       </p>
       <ul class="cv-highlights">
-        <li>
-          <strong>Frontend modernization.</strong> {platformWork[0].cv}
-        </li>
-        <li>
-          <strong>Microfrontends.</strong> {platformWork[1].cv}
-        </li>
+        {platformWork.slice(0, 2).map((work) => (
+          <li>
+            <strong>{work.cvTitle}.</strong> {work.cv}
+          </li>
+        ))}
         <li>
           <strong>Plexus Interop.</strong> {projects[0].cv}{" "}
           <a href={projects[0].url}>github.com/finos/plexus-interop</a>
         </li>
-        <li>
-          <strong>Developer infrastructure.</strong> {platformWork[2].cv}
-        </li>
-        <li>
-          <strong>Mobile foundation.</strong> {platformWork[3].cv}
-        </li>
-        <li>
-          <strong>AI enablement.</strong> {aiWork.cv}
-        </li>
-        <li>
-          <strong>Engineering leadership.</strong> {career[0].bullets[1]}
-        </li>
+        {platformWork.slice(2).map((work) => (
+          <li>
+            <strong>{work.cvTitle}.</strong> {work.cv}
+          </li>
+        ))}
       </ul>
     </section>
     <div class="cv-page-two">
+      <section class="cv-section" aria-labelledby="cv-enablement">
+        <h2 id="cv-enablement">Deutsche Bank · Developer enablement</h2>
+        <p>{delivery.cv}</p>
+        <p>{aiWork.cv}</p>
+      </section>
       <section class="cv-section" aria-labelledby="cv-independent">
         <h2 id="cv-independent">Independent product</h2>
         <div class="job-head">
@@ -102,11 +100,6 @@ import {
             </div>
             <p class="cv-job-role">{job.role}</p>
             <p>{job.text}</p>
-            <ul>
-              {job.bullets.map((bullet) => (
-                <li>{bullet}</li>
-              ))}
-            </ul>
           </div>
         ))}
       </section>

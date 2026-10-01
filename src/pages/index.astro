@@ -7,6 +7,7 @@ import {
   impact,
   autobahn,
   platformWork,
+  delivery,
   aiWork,
   projects,
   expertise,
@@ -186,8 +187,13 @@ import {
             </article>
           ))}
         </div>
+        <aside class="pilot-note" aria-labelledby="delivery-title">
+          <p class="meta">GitHub · CI/CD · GitOps</p>
+          <h3 id="delivery-title">{delivery.title}</h3>
+          <p>{delivery.text}</p>
+        </aside>
         <aside class="pilot-note" aria-labelledby="ai-title">
-          <p class="meta">Developer effectiveness · Experiments & pilot</p>
+          <p class="meta">Developer tooling · Adoption & exploration</p>
           <h3 id="ai-title">{aiWork.title}</h3>
           <p>{aiWork.text}</p>
           <p>{aiWork.pilot}</p>
@@ -343,13 +349,6 @@ import {
                     ))}
                   </dl>
                 </>
-              )}{" "}
-              {index > 0 && (
-                <ul>
-                  {job.bullets.map((bullet) => (
-                    <li>{bullet}</li>
-                  ))}
-                </ul>
               )}
             </article>
           ))}
