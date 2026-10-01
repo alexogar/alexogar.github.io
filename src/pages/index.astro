@@ -1,12 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Arrow from "../components/Arrow.astro";
+import SkillsRadar from "../components/SkillsRadar.astro";
 import {
   profile,
   operatingModel,
   impact,
   autobahn,
   platformWork,
+  delivery,
   aiWork,
   projects,
   expertise,
@@ -172,7 +174,7 @@ import {
         </div>
         <div class="platform-work">
           {platformWork.map((work, index) => (
-            <article>
+            <article id={work.id}>
               <div class="work-index">0{index + 1}</div>
               <div>
                 <p class="work-tag">{work.tag}</p>
@@ -186,8 +188,13 @@ import {
             </article>
           ))}
         </div>
+        <aside class="pilot-note" aria-labelledby="delivery-title">
+          <p class="meta">GitHub · CI/CD · GitOps</p>
+          <h3 id="delivery-title">{delivery.title}</h3>
+          <p>{delivery.text}</p>
+        </aside>
         <aside class="pilot-note" aria-labelledby="ai-title">
-          <p class="meta">Developer effectiveness · Experiments & pilot</p>
+          <p class="meta">Developer tooling · Adoption & exploration</p>
           <h3 id="ai-title">{aiWork.title}</h3>
           <p>{aiWork.text}</p>
           <p>{aiWork.pilot}</p>
@@ -211,7 +218,7 @@ import {
         </h2>
         <div class="project-grid">
           {projects.map((project) => (
-            <article class={`project project-${project.id}`}>
+            <article id={project.id} class={`project project-${project.id}`}>
               <p class="meta">{project.label}</p>
               <div class="project-symbol" aria-hidden="true">
                 {project.id === "plexus" ? (
@@ -259,9 +266,14 @@ import {
                     <circle cx="46" cy="33" r="7" fill="currentColor" />
                   </svg>
                 ) : (
-                  <span>
-                    l<span>✦</span>
-                  </span>
+                  <img
+                    src="/lorely-mark.webp"
+                    alt=""
+                    width={76}
+                    height={76}
+                    loading="lazy"
+                    decoding="async"
+                  />
                 )}
               </div>
               <h3>{project.title}</h3>
@@ -291,6 +303,7 @@ import {
         <p class="section-intro">
           The technologies serve the problem. These are the areas I work across.
         </p>
+        <SkillsRadar />
         <dl class="expertise">
           {expertise.map((group) => (
             <div>
@@ -343,13 +356,6 @@ import {
                     ))}
                   </dl>
                 </>
-              )}{" "}
-              {index > 0 && (
-                <ul>
-                  {job.bullets.map((bullet) => (
-                    <li>{bullet}</li>
-                  ))}
-                </ul>
               )}
             </article>
           ))}
@@ -650,7 +656,14 @@ import {
     flex-direction: column;
   }
   .project-lorely {
-    background: #f0ece5;
+    --ink: #f0ebff;
+    --muted: #c0b4d8;
+    --accent: #cfb3ff;
+    --line: #47345f;
+    color: var(--ink);
+    border-color: var(--line);
+    background:
+      radial-gradient(ellipse at top left, #30204b, transparent 70%), #0c0817;
   }
   .project .meta {
     font-size: 0.58rem;
@@ -664,16 +677,8 @@ import {
     display: flex;
     align-items: center;
   }
-  .project-lorely .project-symbol {
-    color: #695642;
-  }
-  .project-symbol > span {
-    font: italic 4.8rem/0.8 var(--serif);
-  }
-  .project-symbol > span > span {
-    font-size: 2rem;
-    padding-left: 0.2rem;
-    vertical-align: top;
+  .project-lorely img {
+    mix-blend-mode: screen;
   }
   .project h3 {
     font: 2.6rem var(--serif);
@@ -706,6 +711,9 @@ import {
     padding: 0.25rem 0.55rem;
     border: 1px solid #d1d6cc;
     border-radius: 3px;
+  }
+  .project-lorely .tags li {
+    border-color: var(--line);
   }
   .project .text-link {
     font-size: 0.78rem;

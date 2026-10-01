@@ -129,6 +129,25 @@ await withSite(async (site) => {
           ),
           `Horizontal overflow: ${route} at ${width}px`,
         );
+        if (route === "/") {
+          assert.ok(
+            await auditPage.locator(".skills-radar svg").evaluate((svg) => {
+              const box = svg.viewBox.baseVal;
+              return [
+                ...svg.querySelectorAll("polygon, line, circle, text"),
+              ].every((element) => {
+                const bounds = element.getBBox();
+                return (
+                  bounds.x >= box.x &&
+                  bounds.y >= box.y &&
+                  bounds.x + bounds.width <= box.x + box.width &&
+                  bounds.y + bounds.height <= box.y + box.height
+                );
+              });
+            }),
+            `Skills radar clipping at ${width}px`,
+          );
+        }
         const axe = await new AxeBuilder({ page: auditPage })
           .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
           .analyze();
@@ -167,17 +186,29 @@ await withSite(async (site) => {
     await auditPage.setViewportSize({ width: 1440, height: 1000 });
     await auditPage.goto(site);
     await auditPage.evaluate(() => document.fonts.ready);
+    await auditPage.locator(".project-grid").screenshot({
+      path: "artifacts/lorely-desktop.png",
+    });
+    await auditPage.evaluate(() =>
+      window.scrollTo({ top: 0, behavior: "instant" }),
+    );
     await auditPage.screenshot({
       path: "artifacts/desktop.png",
       fullPage: true,
     });
     await auditPage.screenshot({ path: "artifacts/desktop-hero.png" });
     await auditPage.setViewportSize({ width: 390, height: 844 });
+    await auditPage.evaluate(() =>
+      window.scrollTo({ top: 0, behavior: "instant" }),
+    );
     await auditPage.screenshot({
       path: "artifacts/mobile.png",
       fullPage: true,
     });
     await auditPage.screenshot({ path: "artifacts/mobile-hero.png" });
+    await auditPage.locator("#lorely").screenshot({
+      path: "artifacts/lorely-mobile.png",
+    });
     await auditPage.goto(site + "/cv/");
     await auditPage.emulateMedia({ media: "print" });
     assert.equal(await auditPage.locator(".site-header").isVisible(), false);

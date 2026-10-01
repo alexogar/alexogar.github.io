@@ -1,0 +1,206 @@
+---
+import { strengths } from "../data/profile";
+
+const center = { x: 260, y: 220 };
+const point = (index: number, radius: number) => {
+  const angle = (index * Math.PI) / 3 - Math.PI / 2;
+  return {
+    x: center.x + Math.cos(angle) * radius,
+    y: center.y + Math.sin(angle) * radius,
+  };
+};
+const polygon = (radii: number[]) =>
+  radii
+    .map((radius, index) => {
+      const { x, y } = point(index, radius);
+      return `${x},${y}`;
+    })
+    .join(" ");
+// Distances illustrate professional emphasis; they are not proficiency scores.
+const focusRadius = {
+  "Primary focus": 120,
+  "Independent product": 96,
+  "Applied tooling": 76,
+};
+const labels = [
+  { x: 260, y: 50, anchor: "middle" },
+  { x: 392, y: 150, anchor: "start" },
+  { x: 392, y: 304, anchor: "start" },
+  { x: 260, y: 409, anchor: "middle" },
+  { x: 128, y: 304, anchor: "end" },
+  { x: 128, y: 150, anchor: "end" },
+];
+---
+
+<figure class="skills-radar">
+  <div class="radar-chart">
+    <p class="meta">Engineering profile</p>
+    <svg
+      viewBox="0 0 520 440"
+      role="img"
+      aria-labelledby="radar-title radar-desc"
+    >
+      <title id="radar-title">Alexey’s engineering focus</title>
+      <desc id="radar-desc">
+        A six-axis radar diagram. Frontend platforms, platform architecture,
+        production reliability and developer platforms are the primary focus.
+        Product engineering reflects independent product work; AI engineering
+        reflects applied tooling. The shape shows qualitative emphasis.
+      </desc>
+      <g class="radar-grid" aria-hidden="true">
+        {[32.5, 65, 97.5, 130].map((radius) => (
+          <polygon points={polygon(strengths.map(() => radius))} />
+        ))}
+        {strengths.map((_, index) => {
+          const end = point(index, 130);
+          return <line x1={center.x} y1={center.y} x2={end.x} y2={end.y} />;
+        })}
+      </g>
+      <polygon
+        class="radar-profile"
+        points={polygon(strengths.map((skill) => focusRadius[skill.focus]))}
+      />
+      {strengths.map((skill, index) => {
+        const vertex = point(index, focusRadius[skill.focus]);
+        return (
+          <>
+            <circle class="radar-node" cx={vertex.x} cy={vertex.y} r="4" />
+            <text
+              x={labels[index].x}
+              y={labels[index].y}
+              text-anchor={labels[index].anchor}
+            >
+              {skill.axis}
+            </text>
+          </>
+        );
+      })}
+      <circle class="radar-center" cx={center.x} cy={center.y} r="3" />
+    </svg>
+  </div>
+  <ul class="radar-evidence">
+    {strengths.map((skill) => (
+      <li>
+        <span class="radar-focus">{skill.focus}</span>
+        <a href={skill.href}>
+          {skill.label}
+          <span aria-hidden="true"> ↗</span>
+        </a>
+        <p>{skill.evidence}</p>
+      </li>
+    ))}
+  </ul>
+  <figcaption>A qualitative map of my professional focus.</figcaption>
+</figure>
+
+<style>
+  .skills-radar {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    align-items: center;
+    gap: 40px;
+    margin: 2.5rem 0 3rem;
+    padding: 28px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #eef1ea;
+  }
+  .radar-chart {
+    min-width: 0;
+  }
+  .radar-chart > p {
+    margin-bottom: 0;
+  }
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .radar-grid {
+    fill: none;
+    stroke: #b7c4b9;
+    stroke-width: 1;
+  }
+  .radar-profile {
+    fill: #286456;
+    fill-opacity: 0.14;
+    stroke: var(--accent);
+    stroke-width: 2.5;
+    stroke-linejoin: round;
+  }
+  .radar-node {
+    fill: var(--accent);
+    stroke: #eef1ea;
+    stroke-width: 2;
+  }
+  .radar-center {
+    fill: var(--accent);
+  }
+  text {
+    fill: var(--ink);
+    font: 550 20px var(--sans);
+  }
+  figcaption {
+    grid-column: 1 / -1;
+    color: var(--muted);
+    font-size: 0.75rem;
+    text-align: center;
+  }
+  .radar-evidence {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .radar-evidence li + li {
+    margin-top: 1rem;
+  }
+  .radar-focus {
+    display: block;
+    color: var(--muted);
+    font-size: 0.62rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+  }
+  .radar-evidence a {
+    font-size: 0.88rem;
+    font-weight: 550;
+    text-decoration: none;
+  }
+  .radar-evidence a:hover {
+    text-decoration: underline;
+  }
+  .radar-evidence p {
+    font-size: 0.75rem;
+    color: var(--muted);
+    line-height: 1.55;
+    margin: 0.25rem 0 0;
+  }
+  @media (max-width: 1000px) {
+    .skills-radar {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .radar-chart {
+      width: min(100%, 500px);
+      margin-inline: auto;
+    }
+    .radar-evidence {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .radar-evidence li + li {
+      margin-top: 0;
+    }
+  }
+  @media (max-width: 640px) {
+    .skills-radar {
+      padding: 20px;
+    }
+    .radar-evidence {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+  }
+</style>

@@ -10,6 +10,9 @@ archive requirement is superseded by Alexey’s decision to retire the old blog.
 - `src/layouts/Layout.astro`: landmarks, navigation, canonical/social metadata,
   Person structured data and common styles.
 - `src/pages/index.astro`: the requested nine-section editorial portfolio.
+- `src/components/SkillsRadar.astro`: a six-axis SVG focus diagram backed by
+  `strengths` in the profile, with visible evidence links and a text alternative.
+  Its distances illustrate qualitative focus, without assigning proficiency scores.
 - `src/pages/cv.astro`: concise CV with print CSS; its print rendering generates the
   versioned PDF in `public/alexey-ogarkov-cv.pdf`.
 - The old blog is intentionally retired at Alexey’s request. Its articles remain
@@ -22,6 +25,18 @@ archive requirement is superseded by Alexey’s decision to retire the old blog.
 Design: warm ivory paper, near-black ink, muted teal accents, locally hosted
 Newsreader and DM Sans. Editorial section labels, large serif typography, precise
 rules and restrained project panels establish hierarchy without decorative motion.
+The Lorely panel borrows the midnight-violet and lavender palette from
+[getlorely.com](https://getlorely.com/), with its original book mark served locally
+as a 152px WebP (displayed at 76px). The 13.4 KB image loads lazily; the rest of the
+panel uses scoped CSS and the existing serif font.
 
 The PDF is generated from the same CV route and committed for review. Regeneration
 is explicit, so deployment does not silently replace a reviewed PDF.
+
+The revised CV separates Autobahn's overall footprint (approximately 300 teams,
+250 external apps and 1,000 internal apps), microfrontend adoption (~100 apps across
+~20 teams) and Plexus Interop adoption (100+ apps). Ownership wording distinguishes
+personal implementations, architecture contributions and delivery by other engineers.
+Design-system AI skills are adopted tooling; Project Memory remains a personal pilot.
+The FCP contribution is a microfrontend equivalent, rather than a claim that the
+browser's page-level metric measures every module independently.
