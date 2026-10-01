@@ -9,13 +9,11 @@ import Arrow from "../components/Arrow.astro";
 interface Props {
   title?: string;
   description?: string;
-  article?: boolean;
   noindex?: boolean;
 }
 const {
   title = `${profile.name} — ${profile.role} · ${profile.focus}`,
   description = "Hands-on Principal Software Engineer in Berlin. Frontend and developer platforms, microfrontends, design systems and connected application experiences at Deutsche Bank.",
-  article = false,
   noindex = false,
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
@@ -47,7 +45,7 @@ const person = {
     <meta name="theme-color" content="#f7f6f2" />
     {noindex && <meta name="robots" content="noindex, follow" />}
     <link rel="canonical" href={canonical} />
-    <meta property="og:type" content={article ? "article" : "website"} />
+    <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_GB" />
     <meta property="og:site_name" content={profile.name} />
     <meta property="og:title" content={title} />
@@ -79,12 +77,6 @@ const person = {
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <link
-      rel="alternate"
-      href="/atom.xml"
-      type="application/atom+xml"
-      title="Alexey Ogarkov — archived writing"
-    />
     <script
       type="application/ld+json"
       set:html={JSON.stringify(person).replace(/</g, "\\u003c")}
@@ -117,8 +109,8 @@ const person = {
       <p>© {new Date().getFullYear()} Alexey Ogarkov</p>
       <div>
         <span>Built with care. Kept simple.</span>
-        <a href="/blog/archives/">
-          Archived writing <Arrow direction="right" />
+        <a href="/cv/">
+          Curriculum vitae <Arrow direction="right" />
         </a>
       </div>
     </footer>

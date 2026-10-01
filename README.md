@@ -25,7 +25,7 @@ pnpm preview
 
 Edit professional facts in `src/data/profile.ts`; the homepage and `/cv/` share
 this content, with concise CV variants for longer project stories. See
-[architecture](docs/architecture.md). Historical posts are in `src/content/blog/`.
+[architecture](docs/architecture.md).
 All content is rendered at build time. The contact details use the original site’s
 email and the matching public LinkedIn profile (Berlin).
 
@@ -39,9 +39,8 @@ pnpm lighthouse
 
 Scripts start a production preview automatically. `SITE_URL` uses an existing
 server instead. `CHROME_PATH` can select an installed Chromium/Chrome binary.
-The verification script checks every generated HTML page, every recorded legacy
-content route, internal links/assets/fragment targets, metadata, two-page PDF,
-Atom feeds and manifest icons. It runs axe WCAG A/AA audits on key routes at
+The verification script checks every generated HTML page, internal links/assets/fragment
+targets, metadata, the two-page PDF and manifest icons. It runs axe WCAG A/AA audits on key routes at
 320, 390, 768 and 1440 pixels, checks overflow, keyboard skip navigation,
 reduced motion, print chrome and operation with JavaScript disabled.
 
@@ -76,26 +75,16 @@ To regenerate the local icons and social preview, run `node scripts/assets.mjs`
 after installing Playwright’s browser. Fontsource packages supply locally hosted
 Newsreader and DM Sans under their included SIL Open Font Licenses.
 
-## Preserved legacy routes
+## Retired blog
 
-- `/blog/2013/08/01/github-injustice/`
-- `/blog/2013/08/17/z-dot-script/`
-- `/blog/archives/`
-- `/blog/categories/`
-- `/blog/categories/{git,gitflow,zsh,terminal}/`
-- `/atom.xml` and `/blog/categories/{git,gitflow,zsh,terminal}/atom.xml`
-- `/sitemap.xml` (compatibility sitemap index) and `/favicon.png`
+The old blog is intentionally omitted from the new site at Alexey’s request.
+The two 2013 posts, archive, category routes and Atom feeds remain in Git history;
+none are published or linked from the portfolio. Previous `/blog/...` and feed
+URLs now return the site’s helpful 404 page. No redirect or compatibility routing
+layer is needed. The current sitemap is `/sitemap-index.xml`.
 
-`/blog/` also opens the archive. Article prose and code examples remain intact;
-the external nvie link now uses HTTPS, and code blocks use semantic markup.
-The original Atom entry identifiers are preserved with HTTPS. All 15 recorded
-content/sitemap URLs are covered by `docs/legacy-routes.json` and `pnpm verify`.
-
-Retired resources: unused Octopress theme images/CSS, Font Awesome, jQuery,
-Fancybox, Flash/JWPlayer, Google+, Google Analytics, AddThis and Disqus embeds.
-The repository had no article media depending on these assets. Historical comments
-were hosted externally and were not present in the repository. No article,
-category or feed route was retired; no hosting-specific redirects are needed.
+Unused Octopress theme assets, Font Awesome, jQuery/Fancybox/Flash, Google+,
+Google Analytics, AddThis and Disqus embeds have also been removed.
 
 ## GitHub Pages deployment
 

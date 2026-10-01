@@ -40,8 +40,7 @@ a:hover {
   color: var(--accent);
 }
 a:focus-visible,
-summary:focus-visible,
-pre:focus-visible {
+summary:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 5px;
   border-radius: 2px;
@@ -256,87 +255,13 @@ nav a {
   gap: 0.5rem;
   text-decoration: none;
 }
-.prose {
-  max-width: 720px;
+.error-page {
+  padding-block: 72px;
 }
-.prose p,
-.prose ul,
-.prose ol {
-  margin-bottom: 1.35rem;
-}
-.prose h2 {
-  font-family: var(--sans);
-  font-size: 1.6rem;
-  margin-top: 2.5rem;
-}
-.prose pre {
-  white-space: pre;
-  overflow: auto;
-  padding: 1.2rem;
-  background: var(--tint);
-  border: 1px solid var(--line);
-  font-size: 0.8rem;
-  line-height: 1.6;
-}
-.prose code {
-  font-size: 0.86em;
-}
-.prose li + li {
-  margin-top: 0.75rem;
-}
-.prose figure {
-  margin-inline: 0;
-}
-.archive-head {
-  padding-block: 72px 40px;
-}
-.archive-head h1 {
+.error-page h1 {
   font-size: clamp(3rem, 7vw, 5rem);
   letter-spacing: -0.045em;
   margin-bottom: 1.5rem;
-}
-.archive-note {
-  padding: 1rem 1.2rem;
-  border-left: 2px solid var(--accent);
-  background: var(--tint);
-  color: var(--muted);
-  font-size: 0.85rem;
-}
-.article-body {
-  padding-bottom: 80px;
-}
-.archive-list {
-  margin-block: 2rem 4rem;
-  padding: 0;
-  list-style: none;
-}
-.archive-list li {
-  padding: 1.7rem 0;
-  border-bottom: 1px solid var(--line);
-  display: flex;
-  gap: 2rem;
-  align-items: baseline;
-}
-.archive-list time {
-  font-size: 0.85rem;
-  color: var(--muted);
-  flex-shrink: 0;
-}
-.archive-list h2 {
-  font: 1.6rem var(--serif);
-  margin-bottom: 0.5rem;
-}
-.archive-list p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-.category-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  font-size: 0.85rem;
-  margin-block: 2rem;
 }
 @media (max-width: 900px) {
   .shell {
@@ -394,12 +319,8 @@ nav a {
     gap: 1rem;
     flex-wrap: wrap;
   }
-  .archive-head {
-    padding-block: 48px 28px;
-  }
-  .archive-list li {
-    flex-direction: column;
-    gap: 0.5rem;
+  .error-page {
+    padding-block: 48px;
   }
 }
 @media (prefers-reduced-motion: reduce) {

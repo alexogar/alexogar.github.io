@@ -2,7 +2,8 @@
 
 Product brief: issue #1. Workstreams: content #2, homepage #3, legacy archive #4,
 quality/deployment #5 and CV #6. All six open issues were read before implementation;
-there were no issue comments or repository-specific agent instructions.
+there were no issue comments or repository-specific agent instructions. Issue #4’s
+archive requirement is superseded by Alexey’s decision to retire the old blog.
 
 - `src/data/profile.ts`: professional facts and concise CV variants shared by `/`
   and `/cv/`. Completed work, ongoing transformations and pilots remain explicit.
@@ -11,9 +12,8 @@ there were no issue comments or repository-specific agent instructions.
 - `src/pages/index.astro`: the requested nine-section editorial portfolio.
 - `src/pages/cv.astro`: concise CV with print CSS; its print rendering generates the
   versioned PDF in `public/alexey-ogarkov-cv.pdf`.
-- `src/content/blog/`: both historical articles, preserving prose and code examples.
-- Astro content collection plus generated article/category/feed routes preserve all
-  historical content URLs. The archive is secondary navigation in the footer.
+- The old blog is intentionally retired at Alexey’s request. Its articles remain
+  in Git history; no blog routes, content collection, feeds or archive links are shipped.
 - Static assets are local. No React, hydration, analytics, third-party runtime
   requests or client-side JavaScript are needed.
 - GitHub Actions verifies builds, links, browser accessibility and mobile Lighthouse

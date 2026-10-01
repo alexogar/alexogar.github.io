@@ -12,7 +12,7 @@ real devices can differ. GitHub Actions repeats the same 95+ median gate on Linu
 | Best Practices |   100 |   100 |   100 |    100 |
 | SEO            |   100 |   100 |   100 |    100 |
 
-The homepage loaded about **98 KB** including local fonts, with **0 bytes of
+The homepage loaded about **97 KB** including local fonts, with **0 bytes of
 client-side JavaScript**, zero total blocking time, approximately 1.66s LCP and
 0.0012 CLS. Detailed measurements: [Lighthouse summary](quality/lighthouse-summary.json).
 
@@ -28,15 +28,11 @@ pnpm lighthouse
 ```
 
 - Astro check: zero errors, warnings or hints.
-- 12 HTML pages, all 15 recorded legacy content/sitemap routes, and 40 internal
-  link/asset/fragment references passed.
-- Original article publication days and timezone offsets are preserved; the
-  archive explicitly checks 17 August and 1 August 2013 against UTC date shifts.
-- 28 axe WCAG A/AA audits: homepage, CV, archive, topic index, both articles and
-  404 page at 320, 390, 768 and 1440px. Zero violations.
+- 3 HTML pages and 17 internal link/asset/fragment references passed.
+- 12 axe WCAG A/AA audits: homepage, CV and 404 page at 320, 390, 768 and
+  1440px. Zero violations.
 - No horizontal overflow at those widths. The portfolio and CV remain usable with
   JavaScript disabled. Keyboard skip-link navigation and reduced-motion CSS passed.
-- Legacy code examples are keyboard-scrollable with visible focus outlines.
 - CV print checks hide navigation/actions/footer. Poppler confirms two A4 pages,
   tagged PDF, no PDF JavaScript. Both rasterized pages were visually reviewed for
   clipping, spacing and legibility.

@@ -8,7 +8,6 @@ const htmlFiles = files.filter((file) => file.endsWith(".html"));
 const routes = htmlFiles.map(
   (file) => "/" + file.replace(/index\.html$/, "").replace(/\\/g, "/"),
 );
-const legacy = JSON.parse(await readFile("docs/legacy-routes.json", "utf8"));
 await mkdir("artifacts", { recursive: true });
 
 await withSite(async (site) => {
@@ -19,17 +18,12 @@ await withSite(async (site) => {
   const externalLinks = new Set();
   const report = {
     routes: [],
-    legacyRoutes: legacy.length,
     links: 0,
     accessibility: [],
     viewports: [],
     clientJavaScriptBytes: 0,
   };
   try {
-    for (const route of legacy) {
-      const response = await fetch(new URL(route, site));
-      assert.equal(response.status, 200, `Legacy route missing: ${route}`);
-    }
     for (const [index, route] of routes.entries()) {
       const response = await page.goto(site + route);
       assert.equal(response.status(), 200, `Route failed: ${route}`);
@@ -67,16 +61,6 @@ await withSite(async (site) => {
         !/Google\+|jquery|google-analytics/i.test(details.text),
         `Legacy chrome remains: ${route}`,
       );
-      if (route === "/blog/archives/") {
-        assert.ok(
-          details.text.includes("17 August 2013"),
-          "Original terminal article date shifted",
-        );
-        assert.ok(
-          details.text.includes("1 August 2013"),
-          "Original Git article date shifted",
-        );
-      }
       for (const reference of details.references) {
         const target = new URL(reference, site + route);
         if (target.origin !== site)
@@ -130,24 +114,7 @@ await withSite(async (site) => {
         200,
         `Icon missing: ${icon.src}`,
       );
-    for (const feed of legacy.filter((route) => route.endsWith("atom.xml"))) {
-      const xml = await (await fetch(site + feed)).text();
-      assert.ok(
-        xml.includes('<feed xmlns="http://www.w3.org/2005/Atom">') &&
-          xml.includes("<entry>"),
-        `Feed invalid: ${feed}`,
-      );
-      assert.ok(!xml.includes('href="http:'), `Insecure feed link: ${feed}`);
-    }
-    const keyRoutes = [
-      "/",
-      "/cv/",
-      "/blog/archives/",
-      "/blog/categories/",
-      "/blog/2013/08/01/github-injustice/",
-      "/blog/2013/08/17/z-dot-script/",
-      "/404.html",
-    ];
+    const keyRoutes = ["/", "/cv/", "/404.html"];
     // Axe injects its own audit script; the separate context above verifies the site without JavaScript.
     const auditContext = await browser.newContext();
     const auditPage = await auditContext.newPage();
@@ -239,7 +206,7 @@ await withSite(async (site) => {
       JSON.stringify(report, null, 2) + "\n",
     );
     console.log(
-      `Verified ${routes.length} pages, ${legacy.length} legacy routes, ${report.links} internal references, ${report.accessibility.length} axe audits, keyboard navigation, reduced motion and two-page CV. Zero client-side JavaScript.`,
+      `Verified ${routes.length} pages, ${report.links} internal references, ${report.accessibility.length} axe audits, keyboard navigation, reduced motion and two-page CV. Zero client-side JavaScript.`,
     );
   } finally {
     await browser.close();
