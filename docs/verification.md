@@ -12,9 +12,11 @@ real devices can differ. GitHub Actions repeats the same 95+ median gate on Linu
 | Best Practices |   100 |   100 |   100 |    100 |
 | SEO            |   100 |   100 |   100 |    100 |
 
-The revised homepage loaded about **100 KB** including local fonts, with **0 bytes of
+The revised homepage initially loaded about **100 KB** including local fonts, with **0 bytes of
 client-side JavaScript**, zero total blocking time, approximately 1.65s LCP and
 0.0012 CLS. Detailed measurements: [Lighthouse summary](quality/lighthouse-summary.json).
+The Lorely mark adds 13.4 KB when its card approaches the viewport; it is served
+locally and was not requested during the initial Lighthouse page load.
 
 Passed commands:
 
@@ -28,7 +30,7 @@ pnpm lighthouse
 ```
 
 - Astro check: zero errors, warnings or hints.
-- 3 HTML pages and 23 internal link/asset/fragment references passed.
+- 3 HTML pages and 24 internal link/asset/fragment references passed.
 - 12 axe WCAG A/AA audits: homepage, CV and 404 page at 320, 390, 768 and
   1440px. Zero violations.
 - No horizontal overflow at those widths. The portfolio and CV remain usable with
@@ -49,6 +51,8 @@ optional to avoid third-party availability blocking deployment.
 
 Screenshots: [desktop](screenshots/desktop.png), [mobile](screenshots/mobile.png),
 [full desktop page](screenshots/desktop-full.png), [full mobile page](screenshots/mobile-full.png).
+The Lorely styling was also reviewed in dedicated
+[desktop](screenshots/lorely-desktop.png) and [mobile](screenshots/lorely-mobile.png) screenshots.
 Raw audit HTML/JSON and full screenshots are also retained in the CI quality artifact.
 
 GitHub Pages is configured for GitHub Actions. This content revision deploys after

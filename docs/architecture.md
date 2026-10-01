@@ -25,6 +25,10 @@ archive requirement is superseded by Alexey’s decision to retire the old blog.
 Design: warm ivory paper, near-black ink, muted teal accents, locally hosted
 Newsreader and DM Sans. Editorial section labels, large serif typography, precise
 rules and restrained project panels establish hierarchy without decorative motion.
+The Lorely panel borrows the midnight-violet and lavender palette from
+[getlorely.com](https://getlorely.com/), with its original book mark served locally
+as a 152px WebP (displayed at 76px). The 13.4 KB image loads lazily; the rest of the
+panel uses scoped CSS and the existing serif font.
 
 The PDF is generated from the same CV route and committed for review. Regeneration
 is explicit, so deployment does not silently replace a reviewed PDF.

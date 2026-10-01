@@ -1,6 +1,6 @@
 {
   "routes": ["/404.html", "/", "/cv/"],
-  "links": 23,
+  "links": 24,
   "accessibility": [
     {
       "route": "/",

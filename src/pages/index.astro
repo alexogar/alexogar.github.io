@@ -266,9 +266,14 @@ import {
                     <circle cx="46" cy="33" r="7" fill="currentColor" />
                   </svg>
                 ) : (
-                  <span>
-                    l<span>✦</span>
-                  </span>
+                  <img
+                    src="/lorely-mark.webp"
+                    alt=""
+                    width={76}
+                    height={76}
+                    loading="lazy"
+                    decoding="async"
+                  />
                 )}
               </div>
               <h3>{project.title}</h3>
@@ -651,7 +656,14 @@ import {
     flex-direction: column;
   }
   .project-lorely {
-    background: #f0ece5;
+    --ink: #f0ebff;
+    --muted: #c0b4d8;
+    --accent: #cfb3ff;
+    --line: #47345f;
+    color: var(--ink);
+    border-color: var(--line);
+    background:
+      radial-gradient(ellipse at top left, #30204b, transparent 70%), #0c0817;
   }
   .project .meta {
     font-size: 0.58rem;
@@ -665,16 +677,8 @@ import {
     display: flex;
     align-items: center;
   }
-  .project-lorely .project-symbol {
-    color: #695642;
-  }
-  .project-symbol > span {
-    font: italic 4.8rem/0.8 var(--serif);
-  }
-  .project-symbol > span > span {
-    font-size: 2rem;
-    padding-left: 0.2rem;
-    vertical-align: top;
+  .project-lorely img {
+    mix-blend-mode: screen;
   }
   .project h3 {
     font: 2.6rem var(--serif);
@@ -707,6 +711,9 @@ import {
     padding: 0.25rem 0.55rem;
     border: 1px solid #d1d6cc;
     border-radius: 3px;
+  }
+  .project-lorely .tags li {
+    border-color: var(--line);
   }
   .project .text-link {
     font-size: 0.78rem;
