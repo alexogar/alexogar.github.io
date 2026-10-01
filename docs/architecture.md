@@ -10,6 +10,9 @@ archive requirement is superseded by Alexey’s decision to retire the old blog.
 - `src/layouts/Layout.astro`: landmarks, navigation, canonical/social metadata,
   Person structured data and common styles.
 - `src/pages/index.astro`: the requested nine-section editorial portfolio.
+- `src/components/SkillsRadar.astro`: a six-axis SVG focus diagram backed by
+  `strengths` in the profile, with visible evidence links and a text alternative.
+  Its distances illustrate qualitative focus, without assigning proficiency scores.
 - `src/pages/cv.astro`: concise CV with print CSS; its print rendering generates the
   versioned PDF in `public/alexey-ogarkov-cv.pdf`.
 - The old blog is intentionally retired at Alexey’s request. Its articles remain

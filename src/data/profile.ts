@@ -69,6 +69,7 @@ export const autobahn = {
 export const platformWork = [
   {
     title: "One design language, many applications",
+    id: "design-system",
     cvTitle: "Design system",
     tag: "React · Design systems · Accessibility",
     text: "Drove the shift from heterogeneous .NET, Java and older web UI approaches toward React. I lead design-system architecture and adoption, personally implemented the Figma integration, and guide React component development by engineers on the team.",
@@ -80,6 +81,7 @@ export const platformWork = [
   },
   {
     title: "Composable applications, connected experiences",
+    id: "microfrontends",
     cvTitle: "Microfrontends",
     tag: "Microfrontends · Architecture & delivery",
     text: "Defined the architecture, wrote the foundational implementation and owned delivery. Approximately 100 applications across 20 teams now use it: a standard path to split monoliths into reusable modules, release independently and compose connected workflows.",
@@ -89,6 +91,7 @@ export const platformWork = [
   },
   {
     title: "Keep working when dependencies fail",
+    id: "resilience",
     cvTitle: "Resilience & state continuity",
     tag: "Safe mode · Shared state",
     text: "Originated Autobahn’s safe-mode approach and contributed architecture and implementations. Applications can still launch and retain most functionality without the server; services can operate without downstream systems or a database, using selective client- and server-side write-behind caches.",
@@ -98,6 +101,7 @@ export const platformWork = [
   },
   {
     title: "See the problem through the user’s session",
+    id: "diagnostics",
     cvTitle: "Diagnostics & analytics",
     tag: "Client diagnostics · Event taxonomy",
     text: "Implemented the JavaScript logging client and logging backend, and designed a support action to retrieve browser logs. Support engineers can investigate issues with users’ console logs, navigation history and actions.",
@@ -107,6 +111,7 @@ export const platformWork = [
   },
   {
     title: "From a notification to the next useful action",
+    id: "notifications",
     cvTitle: "Connected notifications",
     tag: "Plexus Interop · Desktop, web & mobile",
     text: "Designed and developed Electron notification toasts and a Plexus action protocol that opens applications and specific screens with the notification’s context.",
@@ -116,6 +121,7 @@ export const platformWork = [
   },
   {
     title: "Make platform quality a shared capability",
+    id: "platform-quality",
     cvTitle: "Performance & accessibility",
     tag: "Microfrontend measurement · CDN · WCAG",
     text: "Developed a microfrontend equivalent of First Contentful Paint measurement. Platform and tenant teams can inspect application loading performance in the shared analytics portal. I conceived and architected CDN delivery of shared dependencies such as React, AG Grid and i18n so applications can reuse cached assets.",
@@ -212,6 +218,51 @@ export const expertise = [
     ],
   },
 ];
+
+export const strengths = [
+  {
+    label: "Frontend platforms",
+    axis: "Frontend",
+    focus: "Primary focus",
+    evidence: "React frameworks, design systems and Figma integration.",
+    href: `#${platformWork[0].id}`,
+  },
+  {
+    label: "Platform architecture",
+    axis: "Architecture",
+    focus: "Primary focus",
+    evidence: "Microfrontend foundations and application interoperability.",
+    href: `#${platformWork[1].id}`,
+  },
+  {
+    label: "Production reliability",
+    axis: "Reliability",
+    focus: "Primary focus",
+    evidence: "Safe-mode architecture, state continuity and diagnostics.",
+    href: `#${platformWork[2].id}`,
+  },
+  {
+    label: "Developer platforms",
+    axis: "Developer",
+    focus: "Primary focus",
+    evidence: "Self-service capabilities and reusable delivery patterns.",
+    href: "#delivery-title",
+  },
+  {
+    label: "Product engineering",
+    axis: "Product",
+    focus: "Independent product",
+    evidence: "Lorely: native iOS, backend, subscriptions and operations.",
+    href: `#${projects[1].id}`,
+  },
+  {
+    label: "AI engineering",
+    axis: "AI",
+    focus: "Applied tooling",
+    evidence: "Design-system skills and spoiler-free knowledge graphs.",
+    href: "#ai-title",
+  },
+] as const;
 
 export const career = [
   {

@@ -8,11 +8,11 @@
         "seo": 100
       },
       "metrics": {
-        "first-contentful-paint": 1354.1961,
-        "largest-contentful-paint": 1654.1961,
+        "first-contentful-paint": 1354.0812,
+        "largest-contentful-paint": 1654.0812,
         "total-blocking-time": 0,
         "cumulative-layout-shift": 0.001232478882965868,
-        "speed-index": 1354.1961
+        "speed-index": 1354.0812
       }
     },
     {
@@ -23,11 +23,11 @@
         "seo": 100
       },
       "metrics": {
-        "first-contentful-paint": 1353.57765,
-        "largest-contentful-paint": 1653.57765,
+        "first-contentful-paint": 1355.2194,
+        "largest-contentful-paint": 1655.2194,
         "total-blocking-time": 0,
         "cumulative-layout-shift": 0.001232478882965868,
-        "speed-index": 1353.57765
+        "speed-index": 1355.2194
       }
     },
     {
@@ -38,11 +38,11 @@
         "seo": 100
       },
       "metrics": {
-        "first-contentful-paint": 1355.4846,
-        "largest-contentful-paint": 1655.4846,
+        "first-contentful-paint": 1353.51945,
+        "largest-contentful-paint": 1653.51945,
         "total-blocking-time": 0,
         "cumulative-layout-shift": 0.001232478882965868,
-        "speed-index": 1355.4846
+        "speed-index": 1353.51945
       }
     }
   ],

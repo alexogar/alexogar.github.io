@@ -129,6 +129,25 @@ await withSite(async (site) => {
           ),
           `Horizontal overflow: ${route} at ${width}px`,
         );
+        if (route === "/") {
+          assert.ok(
+            await auditPage.locator(".skills-radar svg").evaluate((svg) => {
+              const box = svg.viewBox.baseVal;
+              return [
+                ...svg.querySelectorAll("polygon, line, circle, text"),
+              ].every((element) => {
+                const bounds = element.getBBox();
+                return (
+                  bounds.x >= box.x &&
+                  bounds.y >= box.y &&
+                  bounds.x + bounds.width <= box.x + box.width &&
+                  bounds.y + bounds.height <= box.y + box.height
+                );
+              });
+            }),
+            `Skills radar clipping at ${width}px`,
+          );
+        }
         const axe = await new AxeBuilder({ page: auditPage })
           .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
           .analyze();

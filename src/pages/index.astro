@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Arrow from "../components/Arrow.astro";
+import SkillsRadar from "../components/SkillsRadar.astro";
 import {
   profile,
   operatingModel,
@@ -173,7 +174,7 @@ import {
         </div>
         <div class="platform-work">
           {platformWork.map((work, index) => (
-            <article>
+            <article id={work.id}>
               <div class="work-index">0{index + 1}</div>
               <div>
                 <p class="work-tag">{work.tag}</p>
@@ -217,7 +218,7 @@ import {
         </h2>
         <div class="project-grid">
           {projects.map((project) => (
-            <article class={`project project-${project.id}`}>
+            <article id={project.id} class={`project project-${project.id}`}>
               <p class="meta">{project.label}</p>
               <div class="project-symbol" aria-hidden="true">
                 {project.id === "plexus" ? (
@@ -297,6 +298,7 @@ import {
         <p class="section-intro">
           The technologies serve the problem. These are the areas I work across.
         </p>
+        <SkillsRadar />
         <dl class="expertise">
           {expertise.map((group) => (
             <div>
