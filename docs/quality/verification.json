@@ -1,0 +1,162 @@
+{
+  "routes": [
+    "/404.html",
+    "/",
+    "/cv/",
+    "/blog/",
+    "/blog/categories/",
+    "/blog/categories/zsh/",
+    "/blog/categories/terminal/",
+    "/blog/categories/gitflow/",
+    "/blog/categories/git/",
+    "/blog/archives/",
+    "/blog/2013/08/17/z-dot-script/",
+    "/blog/2013/08/01/github-injustice/"
+  ],
+  "legacyRoutes": 15,
+  "links": 40,
+  "accessibility": [
+    {
+      "route": "/",
+      "width": 320,
+      "violations": 0
+    },
+    {
+      "route": "/cv/",
+      "width": 320,
+      "violations": 0
+    },
+    {
+      "route": "/blog/archives/",
+      "width": 320,
+      "violations": 0
+    },
+    {
+      "route": "/blog/categories/",
+      "width": 320,
+      "violations": 0
+    },
+    {
+      "route": "/blog/2013/08/01/github-injustice/",
+      "width": 320,
+      "violations": 0
+    },
+    {
+      "route": "/blog/2013/08/17/z-dot-script/",
+      "width": 320,
+      "violations": 0
+    },
+    {
+      "route": "/404.html",
+      "width": 320,
+      "violations": 0
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "violations": 0
+    },
+    {
+      "route": "/cv/",
+      "width": 390,
+      "violations": 0
+    },
+    {
+      "route": "/blog/archives/",
+      "width": 390,
+      "violations": 0
+    },
+    {
+      "route": "/blog/categories/",
+      "width": 390,
+      "violations": 0
+    },
+    {
+      "route": "/blog/2013/08/01/github-injustice/",
+      "width": 390,
+      "violations": 0
+    },
+    {
+      "route": "/blog/2013/08/17/z-dot-script/",
+      "width": 390,
+      "violations": 0
+    },
+    {
+      "route": "/404.html",
+      "width": 390,
+      "violations": 0
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "violations": 0
+    },
+    {
+      "route": "/cv/",
+      "width": 768,
+      "violations": 0
+    },
+    {
+      "route": "/blog/archives/",
+      "width": 768,
+      "violations": 0
+    },
+    {
+      "route": "/blog/categories/",
+      "width": 768,
+      "violations": 0
+    },
+    {
+      "route": "/blog/2013/08/01/github-injustice/",
+      "width": 768,
+      "violations": 0
+    },
+    {
+      "route": "/blog/2013/08/17/z-dot-script/",
+      "width": 768,
+      "violations": 0
+    },
+    {
+      "route": "/404.html",
+      "width": 768,
+      "violations": 0
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "violations": 0
+    },
+    {
+      "route": "/cv/",
+      "width": 1440,
+      "violations": 0
+    },
+    {
+      "route": "/blog/archives/",
+      "width": 1440,
+      "violations": 0
+    },
+    {
+      "route": "/blog/categories/",
+      "width": 1440,
+      "violations": 0
+    },
+    {
+      "route": "/blog/2013/08/01/github-injustice/",
+      "width": 1440,
+      "violations": 0
+    },
+    {
+      "route": "/blog/2013/08/17/z-dot-script/",
+      "width": 1440,
+      "violations": 0
+    },
+    {
+      "route": "/404.html",
+      "width": 1440,
+      "violations": 0
+    }
+  ],
+  "viewports": [320, 390, 768, 1440],
+  "clientJavaScriptBytes": 0
+}
