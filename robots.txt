@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: 
-
-Sitemap: http://alexogar.github.io/sitemap.xml 

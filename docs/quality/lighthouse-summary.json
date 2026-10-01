@@ -1,0 +1,55 @@
+{
+  "runs": [
+    {
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 1357.48575,
+        "largest-contentful-paint": 1657.48575,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0.001232478882965868,
+        "speed-index": 1357.48575
+      }
+    },
+    {
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 1355.6970000000001,
+        "largest-contentful-paint": 1655.6970000000001,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0.001232478882965868,
+        "speed-index": 1355.6970000000001
+      }
+    },
+    {
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 1357.54065,
+        "largest-contentful-paint": 1357.54065,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0.001232478882965868,
+        "speed-index": 1357.54065
+      }
+    }
+  ],
+  "median": {
+    "performance": 100,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100
+  }
+}

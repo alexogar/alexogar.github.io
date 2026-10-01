@@ -1,0 +1,362 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Arrow from "../components/Arrow.astro";
+import {
+  profile,
+  career,
+  promotions,
+  platformWork,
+  aiWork,
+  projects,
+  expertise,
+  education,
+} from "../data/profile";
+---
+
+<Layout
+  title={`${profile.name} — Curriculum vitae`}
+  description={`${profile.role} · ${profile.focus}. Experience, selected engineering contributions, expertise and education. Download the PDF CV.`}
+>
+  <div class="cv-toolbar shell">
+    <p class="eyebrow">Curriculum vitae</p>
+    <a class="button button-primary" href="/alexey-ogarkov-cv.pdf" download>
+      Download PDF <Arrow direction="down" />
+    </a>
+  </div>
+  <article class="cv shell">
+    <header class="cv-header">
+      <h1>{profile.name}</h1>
+      <p class="cv-title">
+        {profile.role} · {profile.focus}
+      </p>
+      <p class="cv-contact">
+        {profile.location} <span aria-hidden="true">·</span>{" "}
+        <a href={`mailto:${profile.email}`}>{profile.email}</a>
+        <br />
+        <a href={profile.github}>github.com/alexogar</a>{" "}
+        <span aria-hidden="true">·</span>{" "}
+        <a href={profile.linkedin}>linkedin.com/in/alexeyogarkov</a>
+      </p>
+      <p class="cv-summary">{profile.cvSummary}</p>
+    </header>
+    <section class="cv-section" aria-labelledby="cv-experience">
+      <h2 id="cv-experience">Experience & platform contributions</h2>
+      <div class="job-head">
+        <h3>{career[0].company}</h3>
+        <p>{career[0].dates}</p>
+      </div>
+      <p class="cv-job-role">{career[0].role}</p>
+      <p>{career[0].text}</p>
+      <p>{career[0].bullets[0]}</p>
+      <p class="cv-promotions">
+        {promotions.map((promotion) => (
+          <span>
+            {promotion.role}: {promotion.dates}
+          </span>
+        ))}
+      </p>
+      <ul class="cv-highlights">
+        <li>
+          <strong>Frontend modernization.</strong> {platformWork[0].cv}
+        </li>
+        <li>
+          <strong>Microfrontends.</strong> {platformWork[1].cv}
+        </li>
+        <li>
+          <strong>Plexus Interop.</strong> {projects[0].cv}{" "}
+          <a href={projects[0].url}>github.com/finos/plexus-interop</a>
+        </li>
+        <li>
+          <strong>Developer infrastructure.</strong> {platformWork[2].cv}
+        </li>
+        <li>
+          <strong>Mobile foundation.</strong> {platformWork[3].cv}
+        </li>
+        <li>
+          <strong>AI enablement.</strong> {aiWork.cv}
+        </li>
+        <li>
+          <strong>Engineering leadership.</strong> {career[0].bullets[1]}
+        </li>
+      </ul>
+    </section>
+    <div class="cv-page-two">
+      <section class="cv-section" aria-labelledby="cv-independent">
+        <h2 id="cv-independent">Independent product</h2>
+        <div class="job-head">
+          <h3>{projects[1].title}</h3>
+          <p>Public beta</p>
+        </div>
+        <p class="cv-job-role">
+          {projects[1].role} · <a href={projects[1].url}>getlorely.com</a>
+        </p>
+        <p>{projects[1].cv}</p>
+      </section>
+      <section class="cv-section" aria-labelledby="cv-previous">
+        <h2 id="cv-previous">Earlier experience</h2>
+        {career.slice(1).map((job) => (
+          <div class="cv-previous-job">
+            <div class="job-head">
+              <h3>{job.company}</h3>
+              <p>{job.dates}</p>
+            </div>
+            <p class="cv-job-role">{job.role}</p>
+            <p>{job.text}</p>
+            <ul>
+              {job.bullets.map((bullet) => (
+                <li>{bullet}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </section>
+      <section class="cv-section" aria-labelledby="cv-expertise">
+        <h2 id="cv-expertise">Technical expertise</h2>
+        <dl class="cv-expertise">
+          {expertise.map((group) => (
+            <div>
+              <dt>{group.title}</dt>
+              <dd>{group.items.join(" · ")}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+      <section class="cv-section" aria-labelledby="cv-education">
+        <h2 id="cv-education">Education</h2>
+        <div class="job-head">
+          <h3>{education.school}</h3>
+          <p>{education.dates}</p>
+        </div>
+        <p>
+          {education.subject}
+          <br />
+          {education.faculty}
+        </p>
+      </section>
+    </div>
+  </article>
+</Layout>
+<style is:global>
+  .cv-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding-block: 40px 0;
+  }
+  .cv-toolbar p {
+    margin: 0;
+  }
+  .cv {
+    max-width: 860px;
+    padding-block: 64px 80px;
+    font-size: 0.95rem;
+  }
+  .cv h1 {
+    font-size: clamp(3rem, 8vw, 4.8rem);
+    letter-spacing: -0.05em;
+    margin-bottom: 1rem;
+  }
+  .cv-title {
+    font-size: 1.05rem;
+    color: var(--accent);
+  }
+  .cv-contact {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  .cv-contact span {
+    padding-inline: 0.35rem;
+  }
+  .cv-summary {
+    font-size: 1.05rem;
+    margin-top: 2rem;
+  }
+  .cv-section {
+    margin-top: 2.7rem;
+  }
+  .cv-section > h2 {
+    font: 550 0.75rem var(--sans);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+  .job-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+  }
+  .job-head h3 {
+    font: 1.8rem var(--serif);
+    margin-bottom: 0.35rem;
+  }
+  .job-head > p {
+    font-size: 0.8rem;
+    color: var(--muted);
+    flex-shrink: 0;
+  }
+  .cv-job-role {
+    color: var(--accent);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  .cv-promotions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1rem;
+    color: var(--muted);
+    font-size: 0.75rem;
+  }
+  .cv ul {
+    padding-left: 1.1rem;
+  }
+  .cv-highlights li {
+    margin-block: 1rem;
+  }
+  .cv-previous-job + .cv-previous-job {
+    margin-top: 2rem;
+  }
+  .cv-expertise > div {
+    display: grid;
+    grid-template-columns: 190px 1fr;
+    gap: 1rem;
+    margin-block: 0.7rem;
+  }
+  .cv-expertise dt {
+    font-weight: 550;
+  }
+  .cv-expertise dd {
+    margin: 0;
+    color: var(--muted);
+  }
+  @media (max-width: 640px) {
+    .cv-toolbar {
+      padding-top: 28px;
+    }
+    .cv-toolbar .eyebrow {
+      font-size: 0.6rem;
+    }
+    .cv-toolbar .button {
+      font-size: 0.75rem;
+      gap: 0.8rem;
+    }
+    .cv {
+      padding-top: 44px;
+    }
+    .job-head {
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .job-head > p {
+      margin-bottom: 0.6rem;
+    }
+    .cv-expertise > div {
+      grid-template-columns: 1fr;
+      gap: 0.25rem;
+    }
+  }
+  @page {
+    size: A4;
+    margin: 15mm 17mm;
+  }
+  @media print {
+    .cv-toolbar {
+      display: none;
+    }
+    .cv.shell {
+      width: 100%;
+      max-width: none;
+      padding: 0;
+      font-size: 10pt;
+      line-height: 1.42;
+    }
+    .cv h1 {
+      font-size: 34pt;
+      margin-bottom: 5pt;
+    }
+    .cv-title {
+      font-size: 11pt;
+      margin-bottom: 7pt;
+    }
+    .cv-contact {
+      font-size: 8pt;
+      margin-bottom: 10pt;
+    }
+    .cv-summary {
+      font-size: 9.5pt;
+      margin-block: 10pt 0;
+    }
+    .cv-section {
+      margin-top: 15pt;
+    }
+    .cv-section > h2 {
+      font-size: 8pt;
+      padding-bottom: 5pt;
+      margin-bottom: 10pt;
+    }
+    .job-head {
+      flex-direction: row;
+    }
+    .job-head h3 {
+      font-size: 15pt;
+    }
+    .job-head > p {
+      font-size: 8pt;
+      margin-bottom: 0;
+    }
+    .cv-job-role {
+      font-size: 9pt;
+      margin-bottom: 7pt;
+    }
+    .cv p {
+      margin-bottom: 7pt;
+    }
+    .cv-promotions {
+      font-size: 7.2pt;
+      gap: 4pt 12pt;
+    }
+    .cv-highlights li {
+      margin-block: 7pt;
+      break-inside: avoid;
+    }
+    .cv-page-two {
+      break-before: page;
+    }
+    .cv-page-two > .cv-section:first-child {
+      margin-top: 0;
+    }
+    .cv-previous-job + .cv-previous-job {
+      margin-top: 13pt;
+    }
+    .cv-expertise > div {
+      grid-template-columns: 115pt 1fr;
+      gap: 10pt;
+      margin-block: 5pt;
+    }
+    .cv h2,
+    .cv h3,
+    .job-head,
+    .cv-job-role {
+      break-after: avoid;
+    }
+    .cv-previous-job,
+    .cv-page-two > .cv-section {
+      break-inside: avoid;
+    }
+    .cv a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .cv strong {
+      font-weight: 650;
+    }
+    .cv-contact a,
+    .cv-highlights a,
+    .cv-job-role a {
+      text-decoration: underline;
+    }
+  }
+</style>
