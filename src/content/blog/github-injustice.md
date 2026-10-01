@@ -18,7 +18,6 @@ description: "A historical note on Git branching models and the visibility of us
 
 <!-- more -->
 
-
 <h2><strong>Problems:</strong></h2>
 
 <ol>
@@ -27,8 +26,7 @@ description: "A historical note on Git branching models and the visibility of us
 <p> <strong>Note:</strong> We found that this model not perfectly work for our team, every one here commits very often and when you try to finish feature our history looks like</p></li>
 </ol>
 
-
-<pre><code>*   e7258a3 - fetcher.js implementation
+<pre tabindex="0"><code>*   e7258a3 - fetcher.js implementation
 |\
 | * 0dc2743 - comoon!
 | * cad3e15 - hope it help!
@@ -36,16 +34,14 @@ description: "A historical note on Git branching models and the visibility of us
 | * ae16e25 - added fetcher.js p.0
 |/</code></pre>
 
-
-<pre><code>And we wanted it be just one commit in 'develop' branch.
+<pre tabindex="0"><code>And we wanted it be just one commit in 'develop' branch.
 </code></pre>
 
 <ol>
 <li>After some googling and looking into git-flow codebase we found <code>-S</code> parameter for <code>git flow feature finish -S fetcher.js</code> command, this command supposed to do <code>merge --squash</code> which perfectly fits our needs, but there is a bug <em>(or I think it`s a bug:) )</em> in <a href="https://github.com/nvie/gitflow">gitflow</a> which creates merge commit anyway. So history with <code>-S</code> looks like:</li>
 </ol>
 
-
-<pre><code>*   e7258a3 - Merged feature fetcher.js to develop (merged branch anyway)
+<pre tabindex="0"><code>*   e7258a3 - Merged feature fetcher.js to develop (merged branch anyway)
 |\
 * | 24bed22 - fetcher.js implementation (--squash and commit)
 | * 0dc2743 - comoon!
@@ -54,13 +50,11 @@ description: "A historical note on Git branching models and the visibility of us
 | * ae16e25 - added fetcher.js p.0
 |/</code></pre>
 
-
 <h2><strong>Solution:</strong></h2>
 
 <p>So we decided to check whether there are some forks of gitflow with that fix fixed, and the most featured one is <a href="https://github.com/petervanderdoes/gitflow">gitflow (AVH Edition)</a> which as I think now should be default gitflow repository. Using this fork could help you had following clean history in git repo:</p>
 
-<pre><code>* e7258a3 - fetcher.js implementation (--squash and commit)
+<pre tabindex="0"><code>* e7258a3 - fetcher.js implementation (--squash and commit)
 * da2e414 - previous feature</code></pre>
-
 
 <p>Github is way to better than other opensource platforms in inspiring programmers to do opensource, it has social and competition aspects in it, but I think sometime it lacks some visibility of succesfull forks in shine of abandoned origins</p>

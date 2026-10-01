@@ -12,9 +12,8 @@ description: "Some tips for fast folder navigation in the terminal."
 
 <p>Now <a href="https://github.com/rupa/z">z.sh</a> is most used command in my everyday terminal live, it must be installed if you want stop using long sequences of cd commands. It will create some kind of &ldquo;top chart&rdquo; of you folders and will let you jump into them using just several letters. For example</p>
 
-<pre><code>z git 
+<pre tabindex="0"><code>z git
 # will move me to /Users/alexogar/Projects/github</code></pre>
-
 
 <h2>cd -</h2>
 
