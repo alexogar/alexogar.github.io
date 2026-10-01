@@ -12,8 +12,8 @@ real devices can differ. GitHub Actions repeats the same 95+ median gate on Linu
 | Best Practices |   100 |   100 |   100 |    100 |
 | SEO            |   100 |   100 |   100 |    100 |
 
-The homepage loaded about **97 KB** including local fonts, with **0 bytes of
-client-side JavaScript**, zero total blocking time, approximately 1.66s LCP and
+The revised homepage loaded about **98 KB** including local fonts, with **0 bytes of
+client-side JavaScript**, zero total blocking time, approximately 1.65s LCP and
 0.0012 CLS. Detailed measurements: [Lighthouse summary](quality/lighthouse-summary.json).
 
 Passed commands:
@@ -23,7 +23,7 @@ pnpm install --frozen-lockfile
 pnpm format:check
 pnpm check
 pnpm build
-CHECK_EXTERNAL=1 pnpm verify
+pnpm verify
 pnpm lighthouse
 ```
 
@@ -37,9 +37,9 @@ pnpm lighthouse
   tagged PDF, no PDF JavaScript. Both rasterized pages were visually reviewed for
   clipping, spacing and legibility.
 - Desktop/mobile homepage screenshots and the social preview were visually reviewed.
-- External links returned HTTP 200 except LinkedIn, which rejects automated requests
-  with HTTP 999. The matching public profile was checked through public search and
-  its contact/location details were confirmed in the task.
+- Contact and project URLs are unchanged. The initial rebuild checked external links:
+  all returned HTTP 200 except LinkedIn (HTTP 999 for automated requests). Its matching
+  public profile and contact/location details were confirmed in the task.
 
 Automated audits do not establish complete WCAG conformance. No manual screen-reader
 or physical-device test is claimed. CI checks internal links; external checks remain
@@ -49,5 +49,5 @@ Screenshots: [desktop](screenshots/desktop.png), [mobile](screenshots/mobile.png
 [full desktop page](screenshots/desktop-full.png), [full mobile page](screenshots/mobile-full.png).
 Raw audit HTML/JSON and full screenshots are also retained in the CI quality artifact.
 
-Deployment requires the one-time switch from legacy branch publishing to GitHub
-Actions in Settings → Pages when this PR is merged. Production was not changed.
+GitHub Pages is configured for GitHub Actions. This content revision deploys after
+its feature PR is merged into `master`; the published site remains unchanged until then.

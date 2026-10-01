@@ -25,3 +25,11 @@ rules and restrained project panels establish hierarchy without decorative motio
 
 The PDF is generated from the same CV route and committed for review. Regeneration
 is explicit, so deployment does not silently replace a reviewed PDF.
+
+The revised CV separates Autobahn's overall footprint (approximately 300 teams,
+250 external apps and 1,000 internal apps), microfrontend adoption (~100 apps across
+~20 teams) and Plexus Interop adoption (100+ apps). Ownership wording distinguishes
+personal implementations, architecture contributions and delivery by other engineers.
+Design-system AI skills are adopted tooling; Project Memory remains a personal pilot.
+The FCP contribution is a microfrontend equivalent, rather than a claim that the
+browser's page-level metric measures every module independently.
