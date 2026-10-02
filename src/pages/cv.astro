@@ -66,11 +66,14 @@ import {
           <strong>Plexus Interop.</strong> {projects[0].cv}{" "}
           <a href={projects[0].url}>github.com/finos/plexus-interop</a>
         </li>
-        {platformWork.slice(2).map((work) => (
-          <li>
-            <strong>{work.cvTitle}.</strong> {work.cv}
-          </li>
-        ))}
+        {platformWork
+          .slice(2)
+          .filter((work) => work.id !== "notifications")
+          .map((work) => (
+            <li>
+              <strong>{work.cvTitle}.</strong> {work.cv}
+            </li>
+          ))}
       </ul>
     </section>
     <div class="cv-page-two">
