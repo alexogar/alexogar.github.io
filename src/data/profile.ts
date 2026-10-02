@@ -9,7 +9,7 @@ export const profile = {
   summary:
     "I build shared platforms that make engineering teams more effective — from the first implementation to capabilities hundreds of teams can use.",
   cvSummary:
-    "Hands-on technical leader building resilient, connected frontend and developer platforms. I identify systemic engineering problems, implement foundations and turn successful patterns into reusable capabilities for other teams.",
+    "Principal Software Engineer at Deutsche Bank. Architected and built a microfrontend foundation adopted by ~100 applications across ~20 teams. Lead React design-system architecture and adoption for Autobahn, a platform serving ~300 engineering teams.",
 };
 
 export const operatingModel = [
