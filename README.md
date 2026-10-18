@@ -54,6 +54,21 @@ sites can reject automated requests; 403/429 responses (and LinkedIn’s 999) ar
 review. CI checks internal links deterministically, without relying on external
 sites to be available.
 
+## Public case studies
+
+Three recruiter-friendly case studies are generated from `src/data/caseStudies.ts`:
+
+- `/work/autobahn-platform/` — shared frontend foundations and platform engineering
+- `/work/plexus-interop/` — FINOS interoperability work (historical contribution)
+- `/work/lorely/` — independent product engineering and spoiler-aware AI
+
+The homepage links to all three. Before publication, complete
+[the external-communications review](docs/publication-review.md); particularly
+check any Deutsche Bank claims already present in the homepage and PDF CV.
+Use the [launch checklist](docs/publishing-checklist.md) to verify deployment,
+search indexing and LinkedIn presence. Suggested LinkedIn copy is in
+[docs/linkedin-copy.md](docs/linkedin-copy.md).
+
 ## CV and static assets
 
 The committed `public/alexey-ogarkov-cv.pdf` is the reviewed downloadable CV.
@@ -93,10 +108,11 @@ pass before the static `dist/` artifact deploys through GitHub Pages Actions.
 PR builds never deploy. Only the deploy job receives Pages/OIDC write permissions.
 Reports are retained as Actions artifacts. No external SaaS is required.
 
-**One-time repository setup:** under Settings → Pages → Build and deployment,
-select **GitHub Actions** as the source. The old site currently uses legacy
-branch-based publishing; make this switch when merging the rebuild. Enable HTTPS
-enforcement there if it is available. The configured production/canonical origin
+**Pages verification:** under Settings → Pages → Build and deployment,
+confirm **GitHub Actions** is selected as the source. The repository has
+previously used branch-based publishing; the current setting must be checked
+in GitHub rather than inferred from the source code. Enable HTTPS enforcement
+if it is available. The configured production/canonical origin
 is `https://alexogar.github.io`, with no project subpath or custom domain.
 
 Local checks and committed assets are sufficient to review the change before
