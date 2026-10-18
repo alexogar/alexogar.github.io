@@ -148,6 +148,7 @@ export const aiWork = {
 export const projects = [
   {
     id: "plexus",
+    caseStudyUrl: "/work/plexus-interop/",
     title: "Plexus Interop",
     label: "Platform engineering · Open source",
     role: "Web architect & developer",
@@ -162,6 +163,7 @@ export const projects = [
   },
   {
     id: "lorely",
+    caseStudyUrl: "/work/lorely/",
     title: "Lorely",
     label: "Independent product · Public beta",
     role: "Founder & sole developer",
@@ -297,3 +299,20 @@ export const education = {
   subject: "Computer Science and Applied Mathematics",
   dates: "2004 – 2009",
 };
+
+export const publicAppearances = [
+  {
+    year: "2026 · Berlin",
+    title: "Figma × Deutsche Bank: AI, Design Systems & Design-to-Code",
+    text: "Joined a public discussion on design systems as a reliable foundation for AI-assisted UI development. An attendee's public post cited my point about consistent component behaviour.",
+    sourceLabel: "Public mention",
+    sourceUrl: "https://de.linkedin.com/in/anastasia-mitrukhina-b308b181/",
+  },
+  {
+    year: "2018 · Saint Petersburg",
+    title: "TechTrain: «Миллиарды и миллисекунды»",
+    text: "Conference talk about engineering challenges in a large investment bank; co-presented with a colleague.",
+    sourceLabel: "",
+    sourceUrl: "",
+  },
+];
