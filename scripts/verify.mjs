@@ -114,7 +114,14 @@ await withSite(async (site) => {
         200,
         `Icon missing: ${icon.src}`,
       );
-    const keyRoutes = ["/", "/cv/", "/404.html"];
+    const keyRoutes = [
+      "/",
+      "/cv/",
+      "/work/autobahn-platform/",
+      "/work/plexus-interop/",
+      "/work/lorely/",
+      "/404.html",
+    ];
     // Axe injects its own audit script; the separate context above verifies the site without JavaScript.
     const auditContext = await browser.newContext();
     const auditPage = await auditContext.newPage();
