@@ -15,6 +15,7 @@ import {
   career,
   promotions,
   education,
+  publicAppearances,
 } from "../data/profile";
 ---
 
@@ -172,6 +173,11 @@ import {
           <p>{autobahn.introduction}</p>
           <p>{autobahn.foundation}</p>
         </div>
+        <p class="case-intro-link">
+          <a class="text-link" href="/work/autobahn-platform/">
+            Read the platform case study <Arrow direction="right" />
+          </a>
+        </p>
         <div class="platform-work">
           {platformWork.map((work, index) => (
             <article id={work.id}>
@@ -288,6 +294,34 @@ import {
               <a class="text-link" href={project.url}>
                 {project.link} <Arrow />
               </a>
+              <a class="text-link case-link" href={project.caseStudyUrl}>
+                Read the case study <Arrow direction="right" />
+              </a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-grid" id="talks" aria-labelledby="talks-title">
+      <p class="section-label"><span>05</span> Public conversations</p>
+      <div>
+        <h2 id="talks-title">Ideas shared in public.</h2>
+        <p class="section-intro">
+          Talks and discussions about engineering at scale, design systems and
+          the intersection of AI with real software delivery.
+        </p>
+        <div class="public-appearances">
+          {publicAppearances.map((appearance) => (
+            <article>
+              <p class="meta">{appearance.year}</p>
+              <h3>{appearance.title}</h3>
+              <p>{appearance.text}</p>
+              {appearance.sourceUrl && (
+                <a class="text-link" href={appearance.sourceUrl}>
+                  {appearance.sourceLabel} <Arrow direction="right" />
+                </a>
+              )}
             </article>
           ))}
         </div>
@@ -296,7 +330,7 @@ import {
 
     <section class="section section-grid" aria-labelledby="expertise-title">
       <p class="section-label">
-        <span>05</span> Technical expertise
+        <span>06</span> Technical expertise
       </p>
       <div>
         <h2 id="expertise-title">A working toolkit.</h2>
@@ -333,7 +367,7 @@ import {
       aria-labelledby="experience-title"
     >
       <p class="section-label">
-        <span>06</span> Career
+        <span>07</span> Career
       </p>
       <div>
         <h2 id="experience-title">A career close to the code.</h2>
@@ -368,7 +402,7 @@ import {
       aria-labelledby="education-title"
     >
       <p class="section-label">
-        <span>07</span> Education
+        <span>08</span> Education
       </p>
       <div>
         <p class="career-date">{education.dates}</p>
@@ -387,7 +421,7 @@ import {
       aria-labelledby="contact-title"
     >
       <p class="section-label">
-        <span>08</span> Contact
+        <span>09</span> Contact
       </p>
       <div>
         <p class="eyebrow">{profile.location}</p>
@@ -718,6 +752,35 @@ import {
   .project .text-link {
     font-size: 0.78rem;
     justify-content: space-between;
+  }
+  .case-intro-link {
+    margin-top: -1.5rem;
+    margin-bottom: 2.3rem;
+  }
+  .project .case-link {
+    margin-top: 0.8rem;
+    color: var(--accent);
+  }
+  .public-appearances {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+  }
+  .public-appearances article {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+  }
+  .public-appearances h3 {
+    font-size: 1.25rem;
+  }
+  .public-appearances article > p:not(.meta) {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  @media (max-width: 640px) {
+    .public-appearances {
+      grid-template-columns: 1fr;
+    }
   }
   .expertise {
     margin: 0;
